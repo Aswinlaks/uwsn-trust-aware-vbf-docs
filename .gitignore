@@ -1,0 +1,4 @@
+# MkDocs build output (the workflow builds the site; it is never committed)
+_site/
+site/
+__pycache__/
