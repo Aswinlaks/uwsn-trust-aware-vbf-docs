@@ -17,7 +17,7 @@
 
 ## How the work progressed
 
-![Work flow in eight stages: 1 simulation platform, 2 problem narrowed, 3 Study A, 4 development of multi-observer fusion, 5 Study B, 6 literature check, 7 Study C (all completed), 8 deliverables: paper, website and code repository (in progress).](figures/workflow.svg)
+![Work flow in eight stages: 1 simulation platform, 2 problem narrowed, 3 Study A, 4 development of multi-observer fusion, 5 Study B, 6 literature check, 7 Study C, 8 deliverables: paper, website and code repository (all completed).](figures/workflow.svg)
 
 | Stage | Outcome |
 |---|---|
