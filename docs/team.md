@@ -33,6 +33,4 @@
 ## Links
 
 - **Code repository:** [github.com/chethana100/uwsn](https://github.com/chethana100/uwsn)
-- **Research paper:** in progress.
 - **This website:** built with MkDocs and hosted with GitHub Pages.
-- **Demonstration video:** in progress.
