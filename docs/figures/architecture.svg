@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="748.8pt" height="475.2pt" viewBox="0 0 748.8 475.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>make_diagrams.py</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 475.2 
+L 748.8 475.2 
+L 748.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.64 84.96 
+L 506.16 84.96 
+Q 514.8 84.96 514.8 76.32 
+L 514.8 23.04 
+Q 514.8 14.4 506.16 14.4 
+L 26.64 14.4 
+Q 18 14.4 18 23.04 
+L 18 76.32 
+Q 18 84.96 26.64 84.96 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #eaf2fc; stroke: #2a78d6; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 266.4 86.4 
+Q 266.4 95.76 266.4 103.331146 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 269 98.131146 
+L 266.4 103.331146 
+L 263.8 98.131146 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #8c959f; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 26.64 177.12 
+L 506.16 177.12 
+Q 514.8 177.12 514.8 168.48 
+L 514.8 115.2 
+Q 514.8 106.56 506.16 106.56 
+L 26.64 106.56 
+Q 18 106.56 18 115.2 
+L 18 168.48 
+Q 18 177.12 26.64 177.12 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #eef7ee; stroke: #3d9a4a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 266.4 178.56 
+Q 266.4 187.92 266.4 195.491146 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 269 190.291146 
+L 266.4 195.491146 
+L 263.8 190.291146 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #8c959f; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 26.64 269.28 
+L 506.16 269.28 
+Q 514.8 269.28 514.8 260.64 
+L 514.8 207.36 
+Q 514.8 198.72 506.16 198.72 
+L 26.64 198.72 
+Q 18 198.72 18 207.36 
+L 18 260.64 
+Q 18 269.28 26.64 269.28 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #fdf4e7; stroke: #b8741a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 266.4 270.72 
+Q 266.4 280.08 266.4 287.651146 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 269 282.451146 
+L 266.4 287.651146 
+L 263.8 282.451146 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #8c959f; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 26.64 361.44 
+L 506.16 361.44 
+Q 514.8 361.44 514.8 352.8 
+L 514.8 299.52 
+Q 514.8 290.88 506.16 290.88 
+L 26.64 290.88 
+Q 18 290.88 18 299.52 
+L 18 352.8 
+Q 18 361.44 26.64 361.44 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #f3eefc; stroke: #7b5bd1; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 266.4 362.88 
+Q 266.4 372.24 266.4 379.811146 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 269 374.611146 
+L 266.4 379.811146 
+L 263.8 374.611146 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #8c959f; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 26.64 453.6 
+L 506.16 453.6 
+Q 514.8 453.6 514.8 444.96 
+L 514.8 391.68 
+Q 514.8 383.04 506.16 383.04 
+L 26.64 383.04 
+Q 18 383.04 18 391.68 
+L 18 444.96 
+Q 18 453.6 26.64 453.6 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #fdeef0; stroke: #c94a5b; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 552.24 133.2 
+L 722.16 133.2 
+Q 730.8 133.2 730.8 124.56 
+L 730.8 23.04 
+Q 730.8 14.4 722.16 14.4 
+L 552.24 14.4 
+Q 543.6 14.4 543.6 23.04 
+L 543.6 124.56 
+Q 543.6 133.2 552.24 133.2 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #f6f8fa; stroke-dasharray: 5.6,4.2; stroke-dashoffset: 0; stroke: #6e7781; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 637.2 418.32 
+Q 577.44 418.32 519.468854 418.32 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke-dasharray: 6.4,4.8; stroke-dashoffset: 0; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 524.668854 420.92 
+L 519.468854 418.32 
+L 524.668854 415.72 
+z
+" clip-path="url(#p5c7f6f0af5)" style="fill: #8c959f; stroke-dasharray: 6.4,4.8; stroke-dashoffset: 0; stroke: #8c959f; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 637.2 134.64 
+L 637.2 418.32 
+" clip-path="url(#p5c7f6f0af5)" style="fill: none; stroke-dasharray: 6.4,4.8; stroke-dashoffset: 0; stroke: #8c959f; stroke-width: 1.6"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #2a78d6; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="30.96" y="37.733281" transform="rotate(-0 30.96 37.733281)">1  Simulation  (ns-3.41 + Aqua-Sim-NG)</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="58.726219" transform="rotate(-0 30.96 58.726219)">100 nodes, HH-VBF routing (AquaSimTrustQVBF module), meandering-current mobility</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="76.006219" transform="rotate(-0 30.96 76.006219)">selective-forwarding insiders; zero-noise channel, so losses are collisions</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #3d9a4a; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="30.96" y="129.893281" transform="rotate(-0 30.96 129.893281)">2  Node records</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="150.886219" transform="rotate(-0 30.96 150.886219)">each node keeps only its own trace: the headers it decoded,</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="168.166219" transform="rotate(-0 30.96 168.166219)">its own transmissions and its own position</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #b8741a; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="30.96" y="222.053281" transform="rotate(-0 30.96 222.053281)">3  Passive observer  (offline emulator)</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="243.046219" transform="rotate(-0 30.96 243.046219)">candidates: fresh, in range, inside the per-hop pipe; O1 adds the VBF</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="260.326219" transform="rotate(-0 30.96 260.326219)">priority test and hold-time rank; outcome: MATCH / SILENT / OTHER-UP</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #7b5bd1; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="30.96" y="314.168359" transform="rotate(-0 30.96 314.168359)">4  Scoring</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="335.206219" transform="rotate(-0 30.96 335.206219)">pair score r = (K − Σq) / n, judged if n ≥ 14; node rules: R0 max-pair,</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="352.486219" transform="rotate(-0 30.96 352.486219)">R3 median fusion, BETA counts, CA channel-aware comparator</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #c94a5b; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="30.96" y="406.373281" transform="rotate(-0 30.96 406.373281)">5  Evaluator</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="427.366219" transform="rotate(-0 30.96 427.366219)">labels applied only after scoring; AUC, network-cluster bootstrap, Holm</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #1f2328; font: 9.3px 'DejaVu Sans'; text-anchor: start" x="30.96" y="444.646219" transform="rotate(-0 30.96 444.646219)">Study A (O1 vs B-PIPE), Study B (fusion, coverage), Study C (comparison)</text>
+   </g>
+   <g id="text_16">
+    <text style="fill: #57606a; font: 700 11px 'DejaVu Sans'; text-anchor: start" x="554.4" y="37.595312" transform="rotate(-0 554.4 37.595312)">Ground truth</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #1f2328; font: 9.2px 'DejaVu Sans'; text-anchor: start" x="554.4" y="58.698625" transform="rotate(-0 554.4 58.698625)">(simulator logs)</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #1f2328; font: 9.2px 'DejaVu Sans'; text-anchor: start" x="554.4" y="75.978625" transform="rotate(-0 554.4 75.978625)">drop decisions, insider list</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #1f2328; font: 9.2px 'DejaVu Sans'; text-anchor: start" x="554.4" y="93.258625" transform="rotate(-0 554.4 93.258625)">never seen by observers;</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #1f2328; font: 9.2px 'DejaVu Sans'; text-anchor: start" x="554.4" y="110.538625" transform="rotate(-0 554.4 110.538625)">evaluator only, after scoring</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #57606a; font: 9.5px 'DejaVu Sans'; text-anchor: start" x="644.4" y="278.381406" transform="rotate(-0 644.4 278.381406)">labels</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p5c7f6f0af5">
+   <rect x="0" y="0" width="748.8" height="475.2"/>
+  </clipPath>
+ </defs>
+</svg>

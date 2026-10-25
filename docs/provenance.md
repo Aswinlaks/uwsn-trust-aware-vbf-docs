@@ -1,6 +1,8 @@
 # Artifact provenance
 
-## Authoritative outputs (single confirmatory run)
+Every reported number can be traced to a frozen output identified by its MD5 hash.
+
+## Study A: authoritative outputs (single confirmatory run)
 
 | File | MD5 |
 |---|---|
@@ -9,47 +11,39 @@
 | `secondary_report.json` | `12339dfe951338d6bb90a34b9503e803` |
 | `MANIFEST.md5` (binds the three files above) | `e01e755c1bab5f3451ed395814fd61a4` |
 
-## Frozen protocol
-
-| Item | MD5 |
+| Frozen protocol item | MD5 |
 |---|---|
-| Freeze v3 record (`PROTOCOL_FREEZE_RECORD.md`) | `42d019c0da7f948c0f1cd4ae4725ed4e` |
-| Freeze v3 manifest (`FINAL_FREEZE_MANIFEST.md`) | `7f6451ca15522eb0dd310bc074de5493` |
+| Freeze v3 record | `42d019c0da7f948c0f1cd4ae4725ed4e` |
 | Freeze v3 list (175 hashed artefacts) | `5f88afc3496ae1225283192b7a98221c` |
 | Analysis adapter v3.5 | `6683aa78c30042088a13cee2a8dc3dae` |
-| Analysis configuration v6 | `72477fe2ad230b9104fa1ae1c8be304c` |
 
-## Decision records (all frozen)
+## Studies B and C: evaluation outputs
 
-| Record | Content |
-|---|---|
-| D01 | ε, γ and the draw cap |
-| D02 | analysis definition: estimand, δ, interval, verdicts, display |
-| D03 | seed plan and its provenance limitation |
-| D04 | operational choices |
-| D05, D06, D06A | secondary reporting |
-| D07 | output contract |
-| D08 | residual risk R-1 and its operating rule |
-| D09, D10 | one-use precheck checkpoints (attempt 1: stopped with a pipeline anomaly at the label provider; attempt 2: ESTIMABLE) |
-| D11 | the single integrated run |
+| Study | Item | MD5 |
+|---|---|---|
+| B | frozen plan | `14b3f0c48390e6ed74e9bc89d5a1d5ec` |
+| B | evaluation results | `fb5381dab9af9b7468a79a3d713dd8bb` |
+| C | frozen plan | `aa861eecf6751127bc566f32f1883d99` |
+| C | recovery amendment record | `173b384450f0797e9878fc4ec71fc97d` |
+| C | evaluation results | `1628174ea7e739d58c9a0d0787ab2f0d` |
 
-## Execution history (confirmatory)
+## Execution history
 
-1. **Freeze v1:** the protocol was frozen.
-2. **Simulation:** completed for seeds 41–50.
-3. **Emulation:** completed; the D08 operating rule was satisfied.
-4. **Precheck attempt 1:** stopped as a pipeline anomaly before any label was read; a dependency could not be loaded.
-5. **Fix and re-freeze:** a pinned-dependency fix was made, and the protocol re-frozen (freeze v2).
-6. **Precheck attempt 2:** ESTIMABLE.
-7. **Replay guard and re-freeze:** a precheck-reference guard was added, and the protocol re-frozen (freeze v3).
-8. **Integrated run:** precheck replay matched, then scoring and evaluation. **Outcome V5.**
+**Study A**
+1. Protocol frozen; simulation of seeds 41–50 and emulation completed.
+2. First precheck stopped as a pipeline anomaly before any label was read (a dependency could not be loaded).
+3. Dependency fixed and protocol re-frozen; second precheck: ESTIMABLE.
+4. Replay guard added and protocol re-frozen (freeze v3).
+5. Single integrated run: precheck replay matched, then scoring and evaluation; verdict V5.
 
-Each change was made as a new version under review. No frozen artefact was modified in place.
+**Study B**
+1. Plan, models, thresholds and evaluator frozen; pre-run verification gate passed.
+2. 210 simulations, all completed and configuration-checked; one evaluation.
 
-## Verification correction (recorded)
+**Study C**
+1. Plan frozen; behaviour-identity, logging and construct-validity gates passed.
+2. The batch was interrupted by accident after 140 of 160 runs, before any analysis.
+3. Under a documented recovery amendment, the 20 missing runs were re-executed with their original commands; the interrupted partial outputs were confirmed to be exact prefixes of the re-runs.
+4. All 160 runs checked; one evaluation.
 
-**Postflight v1:** the post-run verification script v1 compared the adapter's relative code-hash keys as absolute paths, so one check failed.
-
-**Postflight v2:** v2 corrects only that path mapping and also re-hashes each file on disk. All of its checks passed.
-
-**Scope:** the correction does not touch the run, its outputs or any evaluation rule.
+No frozen artefact was modified in place; every change was made as a new, recorded version.

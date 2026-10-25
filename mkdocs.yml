@@ -1,8 +1,8 @@
 # Documentation portal (MkDocs), published with GitHub Pages from this website-only repository.
 # site_url: GitHub Pages project-site address for the account Aswinlaks and the repository uwsn-trust-aware-vbf-docs.
 site_url: https://aswinlaks.github.io/uwsn-trust-aware-vbf-docs/
-site_name: "Passive Attribution in HH-VBF — O1 vs B-PIPE"
-site_description: "A prespecified comparison of passive selective-forwarding attribution in hop-by-hop vector-based underwater routing"
+site_name: "Multi-Observer Passive Attribution in HH-VBF UASNs"
+site_description: "Multi-Observer Passive Attribution of Selective Forwarding Attacks in HH-VBF-Based Underwater Acoustic Sensor Networks"
 theme:
   name: mkdocs
   highlightjs: false   # no third-party script requests; the code blocks are plain-text diagrams

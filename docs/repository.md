@@ -1,33 +1,34 @@
 # Code and repository
 
-> **Status:** the public code repository does **not** exist yet. No code has been published, and no licence has been applied. Its URL will be added only once the team has made a release decision.
+**Repository:** [github.com/chethana100/uwsn](https://github.com/chethana100/uwsn)
 
-## What the code consists of
+The repository contains the simulation platform (ns-3.41 with the Aqua-Sim-NG module) and the project's analysis code.
 
-| Part | Content |
+## What the repository contains
+
+| Path | Content |
 |---|---|
-| Simulation scenario | `scratch/uwsn-trustq-attack.cc`: 100 nodes, HH-VBF, selective-forwarding insiders |
-| Routing module | the project's `AquaSimTrustQVBF` routing in the Aqua-Sim-NG module for ns-3.41, used in HH-VBF mode |
-| Passive observer | `observer.py`, `geom.py` and the clean calibration of O1 |
-| Evaluator | the frozen evaluator: AUC and cluster bootstrap |
-| Confirmatory pipeline | the O1 / B-PIPE opportunity emulator, the analysis adapter, the exact-rational evaluation and the secondary report. Developed outside the repository and frozen by hash (freeze v3) |
-| Documentation | README, reproduction guide, dependencies, outputs, limitations and a public-release checklist (prepared, not yet published) |
+| `scratch/uwsn-trustq-attack.cc` | the project scenario: 100 nodes, HH-VBF routing, selective-forwarding insiders, meandering-current mobility |
+| `src/aqua-sim-ng/` | the Aqua-Sim-NG module (git submodule), including the project's `AquaSimTrustQVBF` routing used in HH-VBF mode |
+| `analysis/runargs.sh` | the wrapper used to run every simulation |
+| `analysis/stageE/e1/` | the passive observer (`observer.py`, `geom.py`) |
+| `analysis/studies/` | the analysis code of Studies A, B and C, copied exactly as run, with a list of the hashes of the frozen originals |
+| `project/` | installation guide, reproduction steps, methodology, architecture, results and limitations |
 
-## Release status
+## How to use it
 
-| Item | Status |
-|---|---|
-| Release scope (which frozen pipeline files are published) | **PENDING**: team decision |
-| Licence | **HOLD**: the Aqua-Sim-NG upstream README states "All rights reserved", and some module files carry no licence notice. No licence is applied until the rights are resolved |
-| Aqua-Sim-NG version used | the project's Aqua-Sim-NG library and scenario are identified by MD5 hash in [Reproducing the study](reproduction.md) |
-| Environment-specific paths | some frozen files record local absolute paths. Published copies would be parameterised and labelled as derived copies of the frozen originals |
-| Repository URL | **PENDING** |
+1. Follow `project/INSTALL.md` to clone the repository with its submodule and build ns-3.41.
+2. Run any network of any condition with the commands in `project/REPRODUCING.md` (also on [Reproducing the study](reproduction.md)).
+3. Read `analysis/studies/README.md` to see which script produced which result.
 
-## Never published
+## Licence
 
-- ground truth and labels (simulator metadata listing malicious nodes, drop logs);
-- raw simulation traces and the emulated opportunity tables;
-- local machine paths and session material;
-- the literature PDFs.
+ns-3 is distributed under the GNU General Public License version 2 (`LICENSE` in the repository). The Aqua-Sim-NG module keeps its own upstream terms.
 
-See [Reproducing the study](reproduction.md) for the steps that produced the confirmatory result, and [Artifact provenance](provenance.md) for how each artefact is identified by hash.
+## Not published
+
+- ground truth and labels (insider lists, drop logs);
+- raw simulation traces and opportunity tables;
+- the research paper and the literature PDFs.
+
+See [Artifact provenance](provenance.md) for how each output is identified by hash.

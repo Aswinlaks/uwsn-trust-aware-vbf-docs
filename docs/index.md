@@ -1,48 +1,47 @@
-# Passive attribution of selective forwarding in HH-VBF: O1 vs B-PIPE
+# Multi-Observer Passive Attribution of Selective Forwarding Attacks in HH-VBF-Based Underwater Acoustic Sensor Networks
 
-> **Status:** documentation of a final-year research project (reporting v3). The research paper draft is not published on this site.
+> Final-year project 23CSE498 · Group 103 · Department of Computer Science and Engineering, Amrita Vishwa Vidyapeetham, Coimbatore.
 
 ## What this project studies
 
-In underwater acoustic sensor networks that use **hop-by-hop vector-based forwarding (HH-VBF)**, each relay decides privately whether to forward a packet. A passive neighbour can only see its own records. A silent neighbour may be **dropping packets on purpose** (selective forwarding), but it may equally have:
-- never received the packet;
-- forwarded a different copy;
-- forwarded unheard;
-- been suppressed by a better-placed relay.
+Underwater acoustic sensor networks pass data to a sink over several hops. A compromised relay can quietly drop packets it should forward; this is called **selective forwarding**.
 
-So **silence alone never proves that a particular relay dropped a particular packet** (see [Problem](problem.md)).
+In **hop-by-hop vector-based forwarding (HH-VBF)**, relays select themselves: each node inside a virtual pipe decides privately whether to forward. A neighbour that stays silent may therefore be behaving correctly. It may never have received the packet, a better-placed relay may have forwarded first, or its forward may simply not have been heard. Silence alone is never proof of a drop (see [Problem](problem.md)).
 
-This project studies the limits of such passive attribution with one narrow, testable question:
+This project measures how well **passive neighbours**, which only overhear traffic, can still attribute dropping to the right nodes. Every result is checked against simulator ground truth.
 
-> **Given identical observer-local inputs, does conditioning a passive observer on HH-VBF-specific eligibility rules add pair-level discrimination over a generic per-hop pipe-geometry expectation?**
+## Problem statement
+
+> **Does HH-VBF-specific eligibility help a passive observer attribute selective forwarding, compared with generic pipe geometry?**
+
+The answer led to two follow-up questions: does combining the evidence of several observers help, and why do some honest nodes look suspicious?
 
 ## Objectives
 
-1. **Explain the problem.** Show why, in HH-VBF, a passive observer (a node that uses only what it overhears) cannot treat a neighbour's silence as proof that the neighbour dropped a packet.
-2. **Answer one narrow question.** Test whether adding HH-VBF-specific eligibility rules (the O1 observer) improves pair-level discrimination, that is, how well a score separates dropping neighbours from honest ones, over a generic pipe-geometry baseline (B-PIPE), when both use identical observer-local inputs.
-3. **Test it under a fixed plan.** Freeze the protocol, code and dependencies by hash before the ten held-out simulation seeds are analysed once. Then classify the result with a predeclared decision rule, with a minimum meaningful improvement of δ = 0.05.
-4. **Report supporting results descriptively.** Report false-alarm and detection results for both methods without letting them change the primary verdict.
-5. **Place the work in context.** Compare this study's setting and evidence with a supplied set of related papers through a source-traceable evidence map, without ranking unlike metrics.
-6. **Make the results checkable.** Document the frozen pipeline and its output hashes, so that the reported numbers can be verified.
+1. Explain why a neighbour's silence is ambiguous evidence in HH-VBF.
+2. Test, under an analysis plan fixed in advance, whether HH-VBF eligibility rules help a single observer more than generic pipe geometry (**Study A**).
+3. Test on fresh networks whether combining all observers of a node beats relying on its most suspicious observer (**Study B**).
+4. Measure how honest-node scores depend on how many observers judge them, and how much collisions explain (**Study B**).
+5. Compare the approach with an adapted channel-aware trust model (**Study C**).
+6. Keep every reported number traceable to frozen, hash-verified outputs.
 
-## The two methods compared
+## Key results
 
-| Method | What it is |
-|---|---|
-| **O1** | The project's passive observer. It expects a neighbour to forward only if the neighbour is in range, inside the per-hop pipe, **and** satisfies the Aqua-Sim VBF priority test. Its expectations are stratified by HH-VBF hold-time rank. |
-| **B-PIPE** | An adapted baseline defined for this study (not an established or published protocol). It is the same pipeline **without** the priority test and the rank strata, which leaves generic pipe geometry only. |
+![Study B: median fusion versus the maximum-pair rule, change in AUC with 95% intervals for five attack conditions; four are significant, the adaptive attacker is inconclusive.](figures/fig2_fusion.svg)
 
-## The answer (confirmatory run, ten held-out seeds)
+| Study | Question | Result |
+|---|---|---|
+| **A** | Do HH-VBF eligibility rules help a single observer? | **No meaningful gain.** ΔAUC = +0.0019, 95 % interval [-0.0234, +0.0321]; a gain of 0.05 or more is ruled out. |
+| **B** | Does combining observers (median) beat the most suspicious observer (maximum)? | **Yes, in four of five attack conditions:** AUC improved by +0.051 to +0.075. In the standard condition, the share of active droppers detected rose from 4.8% to 52.0%. Against an adaptive attacker the result is inconclusive. |
+| **B** | Why do some honest nodes look suspicious? | Honest scores rise with the number of observers (mean correlation +0.416). Collisions that hide genuine forwards explain a replicated part of this rise (+0.274). |
+| **C** | How does fusion compare with channel-aware trust? | Adding collision-state evidence to median fusion gave a small further gain (+0.014 to +0.031 in AUC). Our fusion rule was not shown to outperform the comparator's maximum rule. |
 
-![Primary result: ΔAUC = +0.0019 with 95% interval from −0.0234 to +0.0321; the interval contains 0 and lies 0.0179 below δ = 0.05.](figures/fig1_primary.svg)
+All findings come from one simulated scenario. Details: [Results and interpretation](results.md); boundaries: [Scope](scope.md) and [Limitations](limitations.md).
 
-| | |
-|---|---|
-| ΔAUC (O1 − B-PIPE), on the 1,806 pairs both judge | **409/210816 ≈ +0.0019** |
-| 95 % percentile cluster-bootstrap interval | **[−0.0234, +0.0321]** |
-| Minimum meaningful improvement (predeclared) | δ = 0.05; U lies 0.0179 below it |
-| Frozen verdict | **V5:** an improvement of at least 0.05 is ruled out; a smaller positive effect is neither shown nor excluded |
+## Pages
 
-**Read this carefully.** V5 is an operational classification under a predeclared rule. It does **not** mean the methods are equivalent, that O1 has no benefit, or that O1 is worse. Also, with ten seed clusters, the interval's nominal 95 % coverage has **not** been established.
-
-See [Results and interpretation](results.md), [Literature context](literature.md), [Scope and future work](scope.md) and [Limitations](limitations.md).
+- [Problem and research question](problem.md)
+- [Architecture](architecture.md) and [Methodology](methodology.md)
+- [Results and interpretation](results.md) and [Literature context](literature.md)
+- [Reproducing the study](reproduction.md), [Code and repository](repository.md) and [Artifact provenance](provenance.md)
+- [Team and progress](team.md)

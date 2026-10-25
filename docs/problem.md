@@ -2,59 +2,51 @@
 
 ## Background
 
-**The attack.** Selective forwarding, or grey-hole behaviour, is a recognised insider attack in underwater networks (Zhu et al., IEEE COMST 2024).
+**The attack.** Selective forwarding, or grey-hole behaviour, is a recognised insider attack in underwater networks (Zhu et al., IEEE COMST 2024). A compromised relay forwards most packets but drops some of the ones it should relay.
 
-**Watchdog monitoring and its limits.** A watchdog overhears whether neighbours forward packets. It can fail under several conditions (Marti et al., MobiCom 2000):
-
-- ambiguous collisions;
-- receiver collisions;
-- limited transmission power;
-- false misbehaviour;
-- collusion;
-- partial dropping.
+**Watchdog monitoring and its limits.** A watchdog node overhears whether its neighbours forward packets. It can misjudge a neighbour, for example when collisions hide a forward from the watchdog (Marti et al., MobiCom 2000). Separating deliberate drops from ordinary loss is a long-standing problem (Shila et al. 2010; Ren et al. 2016).
 
 ## Why HH-VBF makes it harder
 
-| How the next hop is chosen | What the observer must do |
+| How relays are chosen | What a passive observer can know |
 |---|---|
-| In **sender-selected** opportunistic routing, the sender knows its prioritised candidates and expects their acknowledgements (Salehi et al., Wireless Networks 2016). | — |
-| In **HH-VBF** (Nicolaou et al., OCEANS 2007), relays inside a per-hop pipe self-select using a holding time computed from their own position. | Infer which neighbour *should* have forwarded, from possibly stale positions. |
+| In **sender-selected** opportunistic routing, the sender names its prioritised candidates and expects their acknowledgements (Salehi et al. 2016). | Who was expected to forward. |
+| In **HH-VBF** (Nicolaou et al. 2007), every node inside a per-hop pipe decides for itself, using a holding time computed from its own position. Nodes that overhear a better-placed forward may legitimately stay silent. | Only an estimate, from possibly out-of-date positions. |
 
 ## Why silence is not proof of a drop
 
-When the observer expects a neighbour to forward and records nothing, these events look the same to it:
+When an observer expects a neighbour to forward and records nothing, these events look the same to it:
 
-- the neighbour never decoded the copy;
-- it acted on a different upstream copy;
+- the neighbour never decoded the packet;
+- it acted on a different copy of the packet;
 - it forwarded, but the observer did not hear it;
-- it was suppressed by a better-placed relay, or was ineligible from its true (not last-known) position;
+- it was suppressed by a better-placed relay;
 - it dropped the packet.
 
-A node that never transmits has no neighbour entry at any observer at all. A passive observer can therefore estimate only a *tendency* to be silent beyond what is expected, over many opportunities.
+A passive observer can therefore only estimate a neighbour's *tendency* to be silent beyond what is expected, over many opportunities.
 
-**Development diagnostic** (seed 1, drop probability 0.75; development data, **not** the confirmatory run):
+**Development diagnostic** (seed 1, drop probability 0.75; development data, not a confirmatory result):
 
-| Cause of a recorded silence | Share of valid silent opportunities |
+| Cause of a recorded silence | Share |
 |---|---|
 | candidate never decoded the copy | 37 % |
 | candidate acted on a different upstream copy | 32 % |
 | candidate forwarded, but the observer did not hear it | 20 % |
-| drop by the candidate | 5.7 % (209 of 3,679) |
-| ineligibility and suppression | not itemised |
+| drop by the candidate | 5.7 % |
 
-In separate development runs, 64.0 % of drops were observable by a passive peer at drop probability 0.75. At drop probability 1.0, 34 of 42 active malicious nodes were never observable.
+## Research questions
 
-## Research question
+**Main question (Study A):**
 
-> **Given identical observer-local inputs, does conditioning a passive observer on HH-VBF-specific eligibility rules add pair-level discrimination over a generic per-hop pipe-geometry expectation?**
+> **Does HH-VBF-specific eligibility help a passive observer attribute selective forwarding, compared with generic pipe geometry?**
 
-This question is about the limits of passive attribution in receiver-driven HH-VBF. It asks how much of a passive observer's attribution ability comes from HH-VBF-specific eligibility conditioning, rather than from generic geometric expectation.
+**Follow-up questions:**
 
-The question is tested with a single, prespecified primary comparison: O1 against B-PIPE.
+- **Study B:** does aggregating the evidence of all observers that judge a node beat the rule that trusts its single most suspicious observer? How do honest-node scores depend on how many observers judge them?
+- **Study C:** how does this aggregation compare with an adapted channel-aware trust model built on Signori et al. (IEEE IoT J 2022)?
 
 ## What the project does not claim
 
-- **No new detector** is proposed.
-- **No superiority** is claimed, nor equivalence, nor priority ("first") over prior work.
-- **No generalisation** is claimed beyond the simulated scenario.
-- **Synthetic software tests are not research findings.** The pipeline's software tests verified the code on synthetic fixtures only.
+- **No new detector** and no new trust model. Multi-observer aggregation, channel-state weighting and collision-aware loss estimates are established ideas.
+- **No claim of outperforming** published methods, and no equivalence claims.
+- **No generalisation** beyond the simulated scenario.

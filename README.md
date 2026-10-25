@@ -1,8 +1,9 @@
-# Documentation portal: passive attribution in HH-VBF (O1 vs B-PIPE)
+# Documentation website: Multi-Observer Passive Attribution of Selective Forwarding Attacks in HH-VBF-Based Underwater Acoustic Sensor Networks
 
-This repository holds only the source of the project's documentation website. It is built with [MkDocs](https://www.mkdocs.org/) and published with GitHub Pages by the workflow in `.github/workflows/deploy-pages.yml`.
+This repository holds the source of the project's documentation website (final-year project 23CSE498, Group 103). It is built
+with [MkDocs](https://www.mkdocs.org/) and published with GitHub Pages by the workflow in `.github/workflows/deploy-pages.yml`.
 
-The research code, the simulation outputs and the research paper are **not** in this repository.
+The research code is kept in a separate repository; the simulation outputs and the paper are not in this repository.
 
 ## Contents
 
@@ -19,8 +20,3 @@ The research code, the simulation outputs and the research paper are **not** in 
 python -m pip install -r requirements.txt
 python -m mkdocs serve
 ```
-
-## Status
-
-- Links to the code repository, the paper and the demonstration video are marked **PENDING** on the site until they exist.
-- No licence has been chosen for this repository yet.

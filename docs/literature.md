@@ -1,43 +1,36 @@
 # Literature context
 
-Fig. 2 is an **evidence map**, not a performance comparison. For this study and the five supplied papers that report detection-type results, it records:
-- the network and evaluation setting;
-- the attack model;
-- the evidence available to the detector;
-- the metrics and values the authors report, under the authors' own names and units;
-- comparability with this study.
+## What is already known
 
-No study is placed on a numerical axis. This study's own results are in Figs. 1 and 3 on [Results and interpretation](results.md).
+- **Drops versus ordinary loss.** Watchdogs can misjudge neighbours when collisions hide forwards (Marti et al. 2000). Channel-aware detection estimates a node's normal loss from channel quality and medium-access collisions (Shila et al. 2010; Ren et al. 2016).
+- **Several observers.** Guard-based local monitoring isolates a node only when enough guards accuse it, and the false-alarm probability caused by collisions has been analysed for different numbers of guards (Khalil et al. 2007, 2010, 2011). Collaborative watchdogs share detections (Hernandez-Orallo et al. 2015).
+- **Underwater overhearing trust.** Signori et al. (2021, 2022) weight overheard behaviour by an inferred channel state, for a single observer with flooding routing. Donegà et al. (2024, 2026) show that aggregating opinions from several nodes corrects false positives caused by bad channels.
+- **Opportunistic routing.** In sender-driven opportunistic routing, the expected acknowledgements of each candidate can be computed from link quality and candidate priority (Salehi et al. 2016).
 
-![Fig. 2: evidence map, a table with six rows (this study; Liu et al. 2024; Ye and Jiang 2024; Das et al. 2024, AIDPS; Zhang et al. 2023, DOIDS; Khoshvaght et al. 2026, EAQTE) and six columns: paper, network and evaluation setting, attack model, evidence available to the detector, metrics and values reported, and comparability with this study. No values are plotted on an axis.](figures/fig2_literature.svg)
+## Closest work and this study
 
-## What each paper reports
+| Work | Routing | Evidence and aggregation | Attackers | Evaluation |
+|---|---|---|---|---|
+| Signori et al. 2022 | flooding | channel-state-weighted overhearing; one observer | one dropper | analysis; 20 topologies × 50 runs |
+| Donegà et al. 2026 | flooding | channel-based first-hand + weighted-mean second-hand | one dropper, slandering | 100 runs averaged; sea trial |
+| Zhang et al. 2025 | sender-named next hop | HMM channel state; one observer | 2 of 20 nodes | 10 repetitions |
+| Shila et al. 2010 | AODV paths | link loss vs normal loss (channel + MAC) | path droppers | 36 routers, 10 runs |
+| Ren et al. 2016 | sender-driven | loss vs normal loss; reputation propagation | compromised nodes | 100 nodes |
+| Khalil et al. 2007, 2011 | sender-driven | guards; quorum of alerts | insiders | analysis; ns-2 |
+| Salehi et al. 2016 | sender-driven opportunistic | priority-aware expected acknowledgements | droppers | simulation |
+| **This study** | **receiver-driven HH-VBF** | **opportunity-conditioned silence; median over observers** | **20–30 % insiders, lying observers** | **prespecified; fresh networks; per-network false alarms; ground truth** |
 
-| Paper | Metric (authors' name) and definition | Printed values and conditions | Comparability with this study |
-|---|---|---|---|
-| Liu et al. 2024 [4] | **FDR** = Nnm/(Nnm+Nnn), over all normal nodes; **MDR** = Nmn/(Nmn+Nmm), over all malicious nodes (Eqs. 15–16, p. 9) | Table 8, p. 18; malicious-node ratio 0.20, N = 300; no / mobile / immobile harsh environment: FDR 0.79% / 0.83% / 2.16%; MDR 2.33% / 1.16% / 5.83% | **Partial: definitions only.** Terrestrial network; the detector receives forwarded/received counts from inspection nodes; flagged nodes are removed. FDR's denominator (all normal nodes) differs from our node false-alarm denominator (honest nodes with a judged pair). |
-| Ye & Jiang 2024 [9] | **"malicious node detection accuracy"**; formula and denominator not defined in the paper | Table 3, p. 13; gray hole (discard rate 0.4), 20 % malicious nodes, 100 nodes, 150 rounds: 0.871 (no unit printed) | **Not numerically comparable.** The metric is undefined, so the value cannot be equated with any measure in this study. |
-| Das et al. 2024, AIDPS [11] | **accuracy, AUC, FPR** of a hybrid classifier over labelled dataset instances | p. 11 (printed p. 1090), testing dataset: accuracy 0.9774, AUC 0.977, FPR 0.023 | **Not comparable.** Instance-level supervised classification, not pair-level attribution by passive observers. |
-| Zhang et al. 2023, DOIDS [10] | **TPR, FPR, AUC, detection accuracy rate** (node level) | curves only (Figs. 8, 9, 12); no values extracted | **Not numerically comparable.** No tabulated values; none was read off the curves. |
-| Khoshvaght et al. 2026, EAQTE [12] | **detection accuracy rate, false alert rate**, relative to other schemes | relative only, e.g. detection accuracy improved by 7.01% against TUMRL, ARTMM and TMC (p. 1) | **Not numerically comparable.** No absolute rates. |
+## Where this work fits
 
-## How to read it
+Multi-observer aggregation, channel-state weighting and collision-aware loss estimates are established ideas, and this project does not claim them. What we did not find in the literature reviewed is an evaluation of multi-observer passive attribution in **receiver-driven vector-based routing**, with many insiders, lying observers, per-network false alarms and a ground-truth breakdown of honest silence. The review was targeted, not a systematic database search, and the reported values of other studies are not comparable with ours.
 
-- **Context, not a ranking.** The networks, attack settings, detector evidence, metric definitions, denominators and protocols all differ. The values cannot support a performance ranking against our experiment, and they do not explain why our methods behave as they do.
-- **Different evidence.** The detectors in these papers use evidence that our passive observers do not have: packet counts reported by inspection nodes (Liu et al.), trust models (Ye & Jiang, EAQTE), labelled training instances (AIDPS), or monitoring of a sender-side candidate set (DOIDS).
-- **No reproduction.** No prior method was re-run in our setting.
+## Key references
 
-## Rules followed
-
-- Values are copied as printed, with the authors' metric names and units.
-- No derived quantity is shown. The extraction record keeps 1 − MDR for Liu et al. for audit only, marked as derived.
-- No value was read off a plotted curve.
-- For every value, the source page, table and an exact quote are recorded and checked automatically against the PDF. The Liu et al. and Ye & Jiang tables were also checked on rendered page images.
-
-## References (numbering as in the paper)
-
-- [4] L. Liu, Y. Ma, and Y. Wu, "A robust detection scheme against selective forwarding attacks in wireless sensor networks under variable harsh environments," Eng. Appl. Artif. Intell., vol. 138, Art. no. 109392, Dec. 2024, doi:10.1016/j.engappai.2024.109392.
-- [9] J. Ye and W. Jiang, "Routing protocol for underwater wireless sensor networks based on a trust model and void-avoided algorithm," Sensors, vol. 24, no. 23, Art. no. 7614, 2024, doi:10.3390/s24237614.
-- [10] R. Zhang, J. Zhang, Q. Wang, and H. Zhang, "DOIDS: An intrusion detection scheme based on DBSCAN for opportunistic routing in underwater wireless sensor networks," Sensors, vol. 23, no. 4, Art. no. 2096, 2023, doi:10.3390/s23042096.
-- [11] S. Das, A. M. Pasikhani, P. Gope, J. A. Clark, C. Patel, and B. Sikdar, "AIDPS: Adaptive intrusion detection and prevention system for underwater acoustic sensor networks," IEEE/ACM Trans. Netw., vol. 32, no. 2, pp. 1080-1095, Apr. 2024, doi:10.1109/TNET.2023.3313156.
-- [12] P. Khoshvaght, M. Alhussein, K. Aurangzeb, E. Yousefpoor, J. Lansky, and M. Hosseinzadeh, "An environment-aware Q-learning-based trust evaluation scheme in underwater acoustic sensor networks (UASNs)," Comput. Stand. Interfaces, vol. 96, Art. no. 104087, Mar. 2026, doi:10.1016/j.csi.2025.104087.
+- S. Marti et al., "Mitigating routing misbehavior in mobile ad hoc networks," ACM MobiCom, 2000.
+- D. M. Shila, Y. Cheng, T. Anjali, "Mitigating selective forwarding attacks with a channel-aware approach in WMNs," IEEE Trans. Wireless Commun., 2010.
+- J. Ren, Y. Zhang, K. Zhang, X. Shen, "Adaptive and channel-aware detection of selective forwarding attacks in wireless sensor networks," IEEE Trans. Wireless Commun., 2016.
+- I. Khalil, S. Bagchi, "Stealthy attacks in wireless ad hoc networks: Detection and countermeasure," IEEE Trans. Mobile Comput., 2011.
+- A. Signori, F. Campagnaro, I. Nissen, M. Zorzi, "Channel-based trust model for security in underwater acoustic networks," IEEE Internet Things J., 2022.
+- F. Donegà et al., "A collaborative system for reputation-based security in underwater acoustic networks," IEEE Trans. Commun., 2026.
+- M. Salehi et al., "Towards a novel trust-based opportunistic routing protocol for wireless networks," Wireless Networks, 2016.
+- N. Nicolaou et al., "Improving the robustness of location-based routing for underwater sensor networks," IEEE OCEANS, 2007.

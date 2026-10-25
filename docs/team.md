@@ -6,6 +6,7 @@
 |---|---|
 | Project | Final-year project 23CSE498 |
 | Group | GROUP-103 |
+| Department | Computer Science and Engineering, Amrita Vishwa Vidyapeetham, Coimbatore |
 
 ### Team members
 
@@ -14,33 +15,24 @@
 3. Devika Janardanan
 4. Liya Susan Reji
 
-## Progress (2026)
+## How the work progressed
 
-### Completed
+![Work flow in eight stages: 1 simulation platform, 2 problem narrowed, 3 Study A, 4 development of multi-observer fusion, 5 Study B, 6 literature check, 7 Study C (all completed), 8 deliverables: paper, website and code repository (in progress).](figures/workflow.svg)
 
-| Date | Milestone |
+| Stage | Outcome |
 |---|---|
-| Early October | Simulation platform set up (HH-VBF in Aqua-Sim-NG on ns-3.41); attacker model; development studies |
-| Mid October | Research question narrowed to O1 vs B-PIPE; protocol specified and decision records written |
-| 17 October | Protocol frozen; confirmatory simulation (seeds 41–50) and emulation completed |
-| 18 October | Protocol re-frozen after a dependency fix and a replay guard; single confirmatory analysis run, verdict V5 |
-| 18–20 October | Paper draft, this documentation portal and the repository documentation prepared; literature evidence map corrected |
-| 21 October | IEEE-style research paper compiled on Overleaf (7 pages) |
-| 22 October | Research paper revised after a source and attribution check, and recompiled on Overleaf (8 pages) |
-
-### In progress
-
-- Final review of the manuscript; the similarity check is still pending.
-- Hosting this documentation portal with GitHub Pages, from a separate website-only GitHub repository.
-
-### Planned
-
-- Record and host the project demonstration video.
-- Resolve the remaining decisions about the research-code repository and about which links to publish on this portal.
+| 1. Simulation platform | HH-VBF in Aqua-Sim-NG on ns-3.41, with a selective-forwarding attacker model |
+| 2. Problem narrowed | passive attribution; the O1 observer and the B-PIPE baseline defined |
+| 3. Study A | frozen comparison of O1 and B-PIPE: verdict V5 |
+| 4. Development | multi-observer fusion and diagnostics of honest silence |
+| 5. Study B | prospective validation on 210 fresh networks |
+| 6. Literature check | closest published work read and positioned |
+| 7. Study C | comparison with an adapted channel-aware trust model |
+| 8. Deliverables | research paper, this website and the code repository |
 
 ## Links
 
-- **Code repository:** **PENDING**. The URL will be added after the team's release decision; see [Code and repository](repository.md).
-- **Paper:** **PENDING**. The paper draft is under review and is not published on this site.
-- **This portal:** built with MkDocs and hosted with GitHub Pages from a separate, website-only repository.
-- **Demonstration video:** **PENDING**, to be recorded by the team. It is listed among the expected portal content in the TEA rubric.
+- **Code repository:** [github.com/chethana100/uwsn](https://github.com/chethana100/uwsn)
+- **Research paper:** in progress.
+- **This website:** built with MkDocs and hosted with GitHub Pages.
+- **Demonstration video:** in progress.
